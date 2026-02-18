@@ -1,0 +1,286 @@
+/* ================= GOOGLE FONT ================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= BODY ================= */
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #5f6af2, #8e44ad, #ff7aa2);
+    background-size: 300% 300%;
+    animation: gradientMove 12s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* ================= GLASS CARD ================= */
+.auth-card,
+.todo-wrapper {
+    width: 100%;
+    max-width: 440px;
+    backdrop-filter: blur(18px);
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 22px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+}
+
+/* ================= AUTH ================= */
+.auth-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.auth-card {
+    padding: 38px 34px;
+    text-align: center;
+}
+
+.auth-card h1 {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+/* ================= INPUTS ================= */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.auth-form input {
+    padding: 13px 14px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: rgba(255,255,255,0.9);
+    transition: 0.25s;
+}
+
+.auth-form input:focus {
+    transform: scale(1.02);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* ================= BUTTON ================= */
+.auth-form button {
+    margin-top: 6px;
+    padding: 13px;
+    border: none;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.auth-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* ================= LINKS ================= */
+.switch-text {
+    margin-top: 20px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.9);
+}
+
+.switch-text a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* ================= MESSAGE ================= */
+.message {
+    background: rgba(255, 71, 87, 0.15);
+    color: #fff;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+/* =================================================
+                    TODO SECTION
+================================================= */
+
+.todo-wrapper {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    max-height: 92vh;
+}
+
+/* ===== HEADER ===== */
+.todo-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.todo-top h1 {
+    color: white;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+/* ===== LOGOUT ===== */
+.logout-btn {
+    text-decoration: none;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    transition: 0.25s;
+}
+
+.logout-btn:hover {
+    background: rgba(255,255,255,0.35);
+}
+
+/* ===== DATE FILTER ===== */
+.date-filter {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.date-filter input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+.date-filter button {
+    padding: 10px 14px;
+    border: none;
+    background: #2ed573;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* ===== ADD FORM ===== */
+.todo-form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.todo-form input {
+    padding: 11px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.todo-form input[type="text"] {
+    flex: 1.4;
+}
+
+.todo-form button {
+    padding: 11px 16px;
+    border: none;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* ===== LIST ===== */
+.todo-list {
+    overflow-y: auto;
+    max-height: 420px;
+}
+
+/* ===== ITEM ===== */
+.todo-item {
+    background: rgba(255,255,255,0.85);
+    padding: 12px 14px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.25s;
+}
+
+.todo-item:hover {
+    transform: translateX(4px);
+}
+
+.task-text {
+    color: #333;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.task-date {
+    font-size: 12px;
+    color: #666;
+}
+
+/* ===== DELETE ===== */
+.delete-btn {
+    text-decoration: none;
+    font-size: 18px;
+    color: #ff4757;
+    transition: 0.2s;
+}
+
+.delete-btn:hover {
+    transform: scale(1.25);
+}
+
+/* ===== EMPTY ===== */
+.empty {
+    text-align: center;
+    color: rgba(255,255,255,0.9);
+    margin-top: 20px;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 480px) {
+    .auth-card,
+    .todo-wrapper {
+        max-width: 95%;
+        padding: 22px;
+    }
+
+    .todo-form,
+    .date-filter {
+        flex-direction: column;
+    }
+}

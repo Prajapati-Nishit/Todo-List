@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Todo App</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+
+<div class="todo-wrapper">
+
+    <!-- Header -->
+    <div class="todo-top">
+        <h1>📅 My Tasks</h1>
+        <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+    </div>
+
+    <!-- Date Filter -->
+    <form method="GET" class="date-filter">
+        <input type="date" name="date" value="{{ selected_date|date:'Y-m-d' }}">
+        <button type="submit">View</button>
+    </form>
+
+    <!-- Add Task -->
+    <form method="POST" class="todo-form">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="What needs to be done?" required>
+        <input type="date" name="task_date" value="{{ selected_date|date:'Y-m-d' }}">
+        <button type="submit">Add Task</button>
+    </form>
+
+    <!-- Task List -->
+    <div class="todo-list">
+        {% for todo in todos %}
+            <div class="todo-item">
+                <div>
+                    <span class="task-text">{{ todo.title }}</span>
+                    <div class="task-date">
+                        {{ todo.task_date }}
+                    </div>
+                </div>
+                <a href="{% url 'delete' todo.id %}" class="delete-btn">🗑</a>
+            </div>
+        {% empty %}
+            <p class="empty">No tasks for this date 🚀</p>
+        {% endfor %}
+    </div>
+
+</div>
+
+</body>
+</html>

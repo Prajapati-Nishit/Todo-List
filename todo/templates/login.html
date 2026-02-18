@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+
+<div class="auth-wrapper">
+
+    <div class="auth-card">
+        <h1>🔐 Welcome Back</h1>
+        <p class="subtitle">Login to continue managing your tasks</p>
+
+        {% if messages %}
+            {% for message in messages %}
+                <p class="message">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST" class="auth-form">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <p class="switch-text">
+            Don't have an account?
+            <a href="{% url 'signup' %}">Create Account</a>
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>
